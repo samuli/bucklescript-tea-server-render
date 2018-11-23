@@ -1,31 +1,29 @@
-This is a starter kit for bucklescript with [tea](https://github.com/OvermindDL1/bucklescript-tea). It uses [rollup.js](https://rollupjs.org/) to package the javascript and [serve](https://github.com/zeit/serve) to serve the release folder.
+Experimenting with initializing a bucklescript-tea application to a pre-rendered DOM outputted by [react-snap](https://github.com/stereobooster/react-snap/).
 
-# Organisation
+Uses a [patched version](https://github.com/samuli/bucklescript-tea/tree/hydrate) of bucklescript-tea.
 
-* The bucklescript code goes into _src/*.ml_
-* The _release_ folder contains an _index.html_ and rollup bundles your js here in _main.js_
-
-# Getting started
-
-* copy or clone this repository
-* change the names in package.json
-* in the _rollup.config.js_ you can also change the name of the output, you also have to change this name in de _index.html_
-* for consistency, also change the name in _bsconfig.json_
-
-## Install
+# Install
 
 ```
 npm install
 ```
 
-## Build
+# Testing
+
+Copy release/index.html.tpl > release/index.html
 
 ```
 npm run build
-```
-
-## Watch
-
-```
+npm run snap
 npm run watch
 ```
+
+# How does it work
+
+Initial model data for the application is specified in index.html.
+
+react-snap renders index.html and inserts the HTML outputted by bucklescript-tea to the body-tag:
+
+bucklescript-tea app is inited with a hydrate-flag that specifies whether the application should be inited from scratch (for react-snap) or to a pre-renderd DOM (browser).
+
+Note: remove release/200.html and copy release/index.html.tpl > release/index.html if you need to re-run react-snap.
