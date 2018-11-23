@@ -1,4 +1,3 @@
-import livereload from 'rollup-plugin-livereload';
 import node_resolve from 'rollup-plugin-node-resolve';
 
 export default {
@@ -9,8 +8,7 @@ export default {
     format: 'iife'
   },
   plugins: [
-    node_resolve({ module: true, browser: true }),
-    livereload('release')
+    node_resolve({ module: true, browser: true })
   ],
   watch: {
     clearScreen: false

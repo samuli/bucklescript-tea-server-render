@@ -7,7 +7,9 @@ export default {
     name: 'starter',
     format: 'iife'
   },
-  plugins: [node_resolve({ module: true, browser: true })],
+    plugins: [
+        node_resolve({ module: true, browser: true })
+    ],
   watch: {
     clearScreen: false
   }
